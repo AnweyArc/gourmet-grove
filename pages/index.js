@@ -32,20 +32,20 @@ const Home = () => {
     };
 
     return (
-        <div className="min-h-screen bg-gray-100 py-8 px-4">
+        <div className="min-h-screen bg-F5EFE6 py-8 px-4">
             <div className="max-w-4xl mx-auto">
-                <h1 className="text-4xl font-bold text-center text-green-600 mb-8">Gourmet Grove</h1>
+                <h1 className="text-4xl font-bold text-center text-1A4D2E mb-8">Gourmet Grove</h1>
                 <div className="flex justify-center mb-8">
                     <input 
                         type="text" 
                         value={query} 
                         onChange={(e) => setQuery(e.target.value)} 
                         placeholder="Search for food..." 
-                        className="px-4 py-2 border border-gray-300 rounded-l-md focus:outline-none focus:ring-2 focus:ring-green-600"
+                        className="px-4 py-2 border border-4F6F52 rounded-l-md focus:outline-none focus:ring-2 focus:ring-1A4D2E"
                     />
                     <button 
                         onClick={searchRecipes} 
-                        className="px-4 py-2 bg-green-600 text-white rounded-r-md hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-600"
+                        className="px-4 py-2 bg-1A4D2E text-E8DFCA rounded-r-md hover:bg-4F6F52 focus:outline-none focus:ring-2 focus:ring-1A4D2E"
                     >
                         Search
                     </button>
@@ -53,7 +53,7 @@ const Home = () => {
                 {loading && (
                     <div className="text-center mb-8">
                         <div className="loader"></div>
-                        <p className="text-xl text-gray-700">Searching...</p>
+                        <p className="text-xl text-1A4D2E">Searching...</p>
                     </div>
                 )}
                 {searched && results.length === 0 && !loading && (
@@ -68,7 +68,7 @@ const Home = () => {
                             className="bg-white p-4 rounded-lg shadow-md cursor-pointer transform transition duration-300 hover:scale-105"
                             onClick={() => router.push(`/recipe/${recipe.id}`)}
                         >
-                            <h2 className="text-2xl font-semibold mb-2">{recipe.title}</h2>
+                            <h2 className="text-2xl font-semibold mb-2 text-1A4D2E">{recipe.title}</h2>
                             <img src={recipe.image} alt={recipe.title} className="w-full h-48 object-cover rounded-md mb-4" />
                         </div>
                     ))}
