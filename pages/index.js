@@ -5,10 +5,14 @@ import { useRouter } from 'next/router';
 const Home = () => {
     const [query, setQuery] = useState('');
     const [results, setResults] = useState([]);
+    const [searched, setSearched] = useState(false);
+    const [loading, setLoading] = useState(false);
     const router = useRouter();
 
     const searchRecipes = async () => {
         const apiKey = process.env.NEXT_PUBLIC_SPOONACULAR_API_KEY;
+        setLoading(true);
+        setSearched(false);
         try {
             const response = await axios.get(`https://api.spoonacular.com/recipes/complexSearch?query=${query}&number=10&apiKey=${apiKey}`);
             const recipes = await Promise.all(
@@ -20,6 +24,10 @@ const Home = () => {
             setResults(recipes);
         } catch (error) {
             console.error('Error fetching data:', error);
+            setResults([]);
+        } finally {
+            setLoading(false);
+            setSearched(true);
         }
     };
 
@@ -42,6 +50,17 @@ const Home = () => {
                         Search
                     </button>
                 </div>
+                {loading && (
+                    <div className="text-center mb-8">
+                        <div className="loader"></div>
+                        <p className="text-xl text-gray-700">Searching...</p>
+                    </div>
+                )}
+                {searched && results.length === 0 && !loading && (
+                    <div className="text-center text-red-600 text-xl">
+                        Food is not in the Database
+                    </div>
+                )}
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     {results.map((recipe) => (
                         <div 
