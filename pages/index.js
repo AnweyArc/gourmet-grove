@@ -50,6 +50,12 @@ const Home = () => {
                         Search
                     </button>
                 </div>
+                {!searched && (
+                    <div className="text-center text-gray-700 text-sm mb-8 p-4 bg-white rounded-lg shadow-md instruction-box">
+                        <p>Start by entering a food or ingredient name in the search bar on the homepage and click "Search." Browse the list of recipes, each showing a title and image, and click on any recipe to view detailed information.</p>
+                        <p>On the recipe details page, you'll see the title, image, summary, ingredients, and instructions. Additional details like dish type, cuisine, servings, and preparation time are also provided. Scroll down to view common nutritional facts in a table. For more detailed information, click "Show More Nutritional Facts." To explore more recipes, click "Back to Search." Enjoy discovering and cooking new recipes with Gourmet Grove!</p>
+                    </div>
+                )}
                 {loading && (
                     <div className="text-center mb-8">
                         <div className="loader"></div>

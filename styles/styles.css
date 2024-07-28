@@ -107,6 +107,16 @@ input:focus {
     box-shadow: 0 0 0 2px rgba(26, 77, 46, 0.5); /* focus:ring-green-600 */
 }
 
+/* Instruction Box */
+.instruction-box {
+    background-color: #FFFFFF; /* White */
+    border: 2px solid #4F6F52; /* Olive Green */
+    border-radius: 0.5rem; /* rounded-lg */
+    padding: 1rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    font-size: 0.875rem; /* text-sm */
+}
+
 /* Responsive Styles */
 @media (max-width: 768px) {
     .flex {
